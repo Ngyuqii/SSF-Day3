@@ -17,25 +17,25 @@
   <form
     action="#"
     data-th-action="@{/registration/record}"
-    data-th-object="${personDetails}"
+    data-th-object="${person}"
     method="post">
 
     <p>Name: <input type="text" data-th-field="*{name}" placeholder="name"></p>
-    <p data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}"></p>
+    <p class="error" data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}"></p>
 
     <p>Gender:
-      <input type="radio" value="male" data-th-field="*{gender}">Male
-      <input type="radio" value="female" data-th-field="*{gender}">Female</p>
-    <p data-th-if="${#fields.hasErrors('gender')}" data-th-errors="*{gender}"></p>
+      <input type="radio" value="Male" data-th-field="*{gender}">Male
+      <input type="radio" value="Female" data-th-field="*{gender}">Female</p>
+    <p class="error" data-th-if="${#fields.hasErrors('gender')}" data-th-errors="*{gender}"></p>
 
     <p>Phone Number: <input type="text" data-th-field="*{phoneNumber}" placeholder="local phone number"/></p>
-    <p data-th-if="${#fields.hasErrors('phoneNumber')}" data-th-errors="*{phoneNumber}"></p>
+    <p class="error" data-th-if="${#fields.hasErrors('phoneNumber')}" data-th-errors="*{phoneNumber}"></p>
           
     <p>Email: <input type="text" data-th-field="*{email}" placeholder="email"></p>
-    <p data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}"></p>
+    <p class="error" data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}"></p>
 
     <p>Date of Birth: <input type="date" data-th-field="*{dateOfBirth}"/></p>
-    <p data-th-if="${#fields.hasErrors('dateOfBirth')}" data-th-errors="*{dateOfBirth}"></p>
+    <p class="error" data-th-if="${#fields.hasErrors('dateOfBirth')}" data-th-errors="*{dateOfBirth}"></p>
 
     <p>List of Acquired Apparatus:</p>
       <input type="checkbox" value="Pole" data-th-field="*{hobbies}">Pole</input>
@@ -44,10 +44,11 @@
       <input type="checkbox" value="Aerial Silks" data-th-field="*{hobbies}">Aerial Silks</input>
       <input type="checkbox" value="Aerial Trapeze" data-th-field="*{hobbies}">Aerial Trapeze</input>
       <input type="checkbox" value="Straps / Rope" data-th-field="*{hobbies}">Straps / Rope</input></p>
-    <div data-th-if="${#fields.hasErrors('hobbies')}" data-th-errors="*{hobbies}"></div>
-        
-      <input type="Reset"/>
-      <input type="Submit" value="Register"/> 
+    <div class="error" data-th-if="${#fields.hasErrors('hobbies')}" data-th-errors="*{hobbies}"></div>
+    <br>   
+
+    <input type="Reset"/>
+    <input type="Submit" value="Register"/> 
 
   </form>
   

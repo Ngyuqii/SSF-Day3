@@ -23,14 +23,14 @@ public class RegistrationController {
 
      // Instantiate the person object
      Person p = new Person();
-     model.addAttribute("personDetails", p);
+     model.addAttribute("person", p);
      return "form";
     }
 
     //Method to process form and perform validation
      @PostMapping (path="/record")
-     public String postRegistration(@Valid Person p, BindingResult bdResult, Model model, HttpServletResponse response) throws IOException {
-        if(bdResult.hasErrors()){
+     public String postRegistration(@Valid Person p, BindingResult bdresult, Model model, HttpServletResponse response) throws IOException {
+        if(bdresult.hasErrors()){
             return "form";
         }    
         else {

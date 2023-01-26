@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -13,23 +14,24 @@ import jakarta.validation.constraints.Size;
 
 public class Person {
 
-    @NotNull(message="This field cannot be left empty.")
-    @Size(min=1, max=30, message="Name must be contain at least 1, and up to 30 characters.")
+    @NotBlank(message="This field cannot be left empty.")
+    @Size(min=1, max=30, message="Name must be contain 1 to 30 characters.")
     private String name;
 
-    @NotEmpty(message="This field cannot be left empty.")
+   @NotNull(message="This field cannot be left empty.")
     private String gender;
 
-    @NotNull(message="This field cannot be left empty.")
+    @NotBlank(message="This field cannot be left empty.")
     @Size (min=8, max=8, message="Phone number should contain 8 digits.")
     private String phoneNumber;
 
+    @NotBlank(message="This field cannot be left empty.")
     @Email(message="Invalid email address")
     private String email;
 
     @NotNull(message="This field cannot be left empty.")
     @Past(message="Date of Birth must be in the past.")
-    @DateTimeFormat(pattern="DD-MM-YYYY")
+    @DateTimeFormat(pattern="mm-dd-yyyy")
     private LocalDate dateOfBirth;
 
     @NotEmpty(message="Please select at least 1 apparatus.")

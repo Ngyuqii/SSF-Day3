@@ -6,9 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personnel Record</title>
 </head>
-<body>
+<body data-th-object="${person}">
     <h1>Registration Submitted</h1>
-    <h2>You have successfully registered for Pole and Aerial Camp 2023.</h2>
+    <h2>Hi <span data-th-text="*{name}"></span>. You have successfully registered for Pole and Aerial Camp 2023.</h2>
+
+    <h3>Application details</h3>
+    
+    <p>Gender: <span data-th-text="*{gender}"></span>
+    </p>
+
+    <p>Phone Number: <span data-th-text="*{phoneNumber}"></span>
+    </p>
+
+    <p>Email: <span data-th-text="*{email}"></span>
+    </p>
+    
+    <p>Date of Birth: <span data-th-text="*{dateOfBirth}"></span>
+    </p>
+
+    <p>Acquired apparatus: <span data-th-text="*{hobbies}"></span>
+    </p>
+
+    <p><b>We look forward to seeing you soon.</b></p>
+
+
 
 </body>
 </html>
