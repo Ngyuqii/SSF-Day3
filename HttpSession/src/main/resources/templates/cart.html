@@ -3,15 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Cart</title>
 </head>
 <body>
-    <form method="POST" data-th-action="@{/cart}" data-th-object="${item}">
-        Product Name: <input type="text" data-th-field="*{name}">
-        Quantity: <input type="number" min="1" step="0.0.1" data-th-field="*{quantity}">
+    <form method="post" data-th-action="@{/cart}" data-th-object="${item}">
+        Product Name : <input type="text" data-th-field="*{name}"/>
+        Quantity: <input type="number" min="1" step="1" data-th-field="*{quantity}"/>
+        <button type="submit">Add</button>
+        <p>
+            <div data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}"></div>
+            <div data-th-if="${#fields.hasErrors('quantity')}" data-th-errors="*{quantity}"></div> 
+        </p>       
+    </form>
 
-        <button type="submit"></button>
+    <div data-th-unless="${#lists.isEmpty(cart.contents)}">
+        <div>Cart Content:</div>
+        <div data-th-each="it : ${cart.contents}" data-th-object="${it}">
+            <span data-th-text="*{name}"></span>
+            <span data-th-text="*{quantity}"></span>
+        </div>
+    </div>
+
+    <form method="post" data-th-action="@{/cart/checkout}">
+        <button type="submit">Check Out</button>
     </form>
 </body>
 </html>

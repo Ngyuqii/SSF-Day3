@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 30%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 4px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+</head>
+<body>
+    <div data-th-if="${#lists.isEmpty(cart.contents)}">
+        <h3>Your cart is empty.</h3>
+    </div>
+
+    <div data-th-unless="${#lists.isEmpty(cart.contents)}">
+        <h3>Checking out cart:</h3>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Qty</th>
+            </tr>
+            <div data-th-each="it : ${cart.contents}" data-th-object="${it}">
+                <tr>
+                    <td data-th-text="*{name}"></td>
+                    <td data-th-text="*{quantity}"></td>
+                </tr>
+            </div>
+        </table>
+    </div>
+</body>
+</html>

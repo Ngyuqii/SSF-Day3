@@ -1,20 +1,23 @@
 package SSF.HttpSession.models;
 
+import java.util.List;
 import java.util.LinkedList;
-
-import jakarta.validation.OverridesAttribute.List;
-import jakarta.validation.constraints.Digits;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 public class Cart {
 
     private List<Item> contents = new LinkedList<Item>();
-
     
+    //Getter and Setter
+    public List<Item> getContents() {
+        return contents;
+    }
+    public void setContents(List<Item> contents) {
+        this.contents = contents;
+    }
 
+    //Method to add item to cart contents
+    public void addItemToCart(Item item){
+        contents.add(item);
+    }
 
-    
-    
 }
